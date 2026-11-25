@@ -3,8 +3,6 @@ public class Midfielder extends Player{
     private int chancesCreated; 
     private int interceptions;
     
-    public Midfielder() {
-    }
 
     public Midfielder(String[] teams, String leagueName, int currentSeason, String name, int age, double height,
             String nationality, int jerseyNo, int keyPasses, int chancesCreated, int interceptions) {
@@ -43,6 +41,10 @@ public class Midfielder extends Player{
     //Other Methods
     @Override
     public double calculateRating() { 
-        return 0.0; 
+        double rating = 4.5 + keyPasses * 0.05 + chancesCreated * 0.1 + interceptions * 0.05;
+        if(rating >10.0){
+            rating = 10.0;
+        }
+        return rating; 
     }
 }
