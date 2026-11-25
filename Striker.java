@@ -10,6 +10,10 @@ public class Striker extends Player {
     
     @Override
     public double calculateRating() { 
-        return 0.0; 
+        double rating = 4.5 + goalsPerMatch() * 3;
+        if(rating > 10.0){
+            rating = 10.0;
+        }
+       return rating;
     }
 }
